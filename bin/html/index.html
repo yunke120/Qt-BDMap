@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html>
+	<head> 
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<title>Hello, World</title> 
+		<style type="text/css"> 
+			html{height:100%} 
+			body{height:100%;margin:0px;padding:0px} 
+			#container{height:100%} 
+		</style> 
+		<script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=2TooSnYtYgT5BPwXuND1G6gmHkYCA3mZ"></script>
+		<script type="text/javascript" src="qwebchannel.js"></script>   <!-- 与qt交互 -->
+	</head> 
+
+	<body> 
+		<div id="container"></div>
+		
+		<script type="text/javascript">
+			var map = new BMapGL.Map("container");           // 创建地图实例 
+			var point = new BMapGL.Point(113.557892,34.8333);   // 创建点坐标 
+			map.centerAndZoom(point, 15);                    // 初始化地图，设置中心点坐标和地图级别 
+			map.enableScrollWheelZoom(true);                 // 设置滚轮缩放
+			// map.setMapType(BMAP_EARTH_MAP);                  // 设置地图样式，地球模式    
+			// 创建标点  
+			var point = new BMapGL.Point(113.557892, 34.8333);   
+			var marker = new BMapGL.Marker(point);        // 创建标注   
+			map.addOverlay(marker);                     // 将标注添加到地图中 
+
+			var opts = {
+				width: 250,     // 信息窗口宽度
+				height: 100,    // 信息窗口高度
+				title: "RobotPosition"  // 信息窗口标题
+			}
+			var infoWindow = new BMapGL.InfoWindow("RobotPosition", opts);  // 创建信息窗口对象
+			marker.addEventListener("click", function(){                    // 标点添加点击事件
+				map.openInfoWindow(infoWindow, map.getCenter());        // 打开信息窗口
+			});
+
+
+			// qt交互注册
+			new QWebChannel(qt.webChannelTransport,
+				function(channel){
+					window.JSInterface = channel.objects.JSInterface; // 注册
+				}
+			);
+
+			function myMarker(lng,lat){
+				allMarker=map.getOverlays(); //保存所有标注
+				var newpoint=new BMapGL.Point(lng,lat);
+				var newmarker = new BMapGL.Marker(newpoint);        // 创建标注
+				map.addOverlay(newmarker);
+				//alert('ok');
+			};
+
+
+	</script> 
+	</body> 
+</html>
