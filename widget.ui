@@ -6,41 +6,45 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>701</width>
-    <height>512</height>
+    <width>823</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Widget</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
+  <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="12,1">
+    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1">
      <item>
       <widget class="QGroupBox" name="groupBox">
        <property name="title">
-        <string>Map</string>
+        <string>GroupBox</string>
        </property>
-       <layout class="QGridLayout" name="gridLayout">
+       <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
-         <widget class="QWebEngineView" name="widget" native="true"/>
+         <layout class="QVBoxLayout" name="verticalLayout_2" stretch="10,1">
+          <item>
+           <widget class="QWebEngineView" name="widget" native="true"/>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLineEdit" name="lineEdit"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="text">
+               <string>设置标点</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QLineEdit" name="lineEdit"/>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton">
-         <property name="text">
-          <string>设置坐标</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
      </item>
     </layout>
    </item>

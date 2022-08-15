@@ -8,6 +8,8 @@
 #include <QWebEngineView>
 #include <QtWebEngineWidgets/QtWebEngineWidgets>
 
+#include "tinteractobj.h"
+
 namespace Ui {
 class Widget;
 }
@@ -21,7 +23,11 @@ public:
     ~Widget();
 
 private slots:
-    void on_pushButton_clicked();
+
+
+    void on_pushButton_2_clicked();
+
+signals:
 
 private:
     Ui::Widget *ui;

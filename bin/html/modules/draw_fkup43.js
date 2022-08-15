@@ -1,0 +1,1 @@
+/**/_jsload2&&_jsload2('draw', 'function Pg(){}var Qg=Pg.prototype;Qg.zE=u();Qg.Yn=function(){aa("addLine\\u63a5\\u53e3\\u6ca1\\u6709\\u5b9e\\u73b0")};Qg.setAttribute=function(){aa("setAttribute\\u63a5\\u53e3\\u6ca1\\u6709\\u5b9e\\u73b0")};Qg.je=function(){aa("setPath\\u63a5\\u53e3\\u6ca1\\u6709\\u5b9e\\u73b0")};Qg.Ko=x("Mb");D.ny=Pg; ');

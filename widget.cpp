@@ -1,14 +1,14 @@
-// refer:
-// https://forum.qt.io/topic/70968/qwebchannel-js-uncaught-referenceerror-qt-is-not-defined/14
 #include "widget.h"
 #include "ui_widget.h"
-#include <QDebug>
-#include <QFile>
+#include <QStringLiteral>
+#include <QMap>
+
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+
     QString htmlPath = QCoreApplication::applicationDirPath() + "/html/";
     QString htmlFile = htmlPath + "index.html";
     qDebug() << htmlFile;
@@ -20,6 +20,7 @@ Widget::Widget(QWidget *parent) :
     webChannel->registerObject(QString("JSInterface"), ui->widget);
 
     ui->widget->page()->load(QUrl("file:///" + htmlFile));
+
 }
 
 Widget::~Widget()
@@ -27,12 +28,15 @@ Widget::~Widget()
     delete ui;
 }
 
-void Widget::on_pushButton_clicked()
+
+void Widget::on_pushButton_2_clicked()
 {
     QString str = ui->lineEdit->text();
-    QString lon = str.split(",")[0];
-    QString lat = str.split(",")[1];
-    QString cmd=QString("myMarker(%1,%2)").arg(lon).arg(lat);
-    qDebug() << cmd;
+    QString lon1 = str.split(",")[0];
+    QString lat1 = str.split(",")[1];
+    QString lon2 = str.split(",")[2];
+    QString lat2 = str.split(",")[3];
+    QString cmd=QString("drawLine(%1,%2,%3,%4)").arg(lon1).arg(lat1).arg(lon2).arg(lat2);
+//    qDebug() << cmd;
     ui->widget->page()->runJavaScript(cmd);
 }

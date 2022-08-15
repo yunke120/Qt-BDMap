@@ -7,5 +7,9 @@ int main(int argc, char *argv[])
     Widget w;
     w.show();
 
+//    QWebEngineView * pv = new QWebEngineView();
+//        pv->setUrl(QUrl("http://www.baidu.com"));
+//        pv->show();
+
     return a.exec();
 }
